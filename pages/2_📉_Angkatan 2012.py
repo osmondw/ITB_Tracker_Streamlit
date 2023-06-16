@@ -19,7 +19,7 @@ df = pd.read_excel(
 selected_major = st.session_state["Jurusan"]
 filtered_data = df[df['PRODI'] == selected_major]
 row = df[df['PRODI'] == selected_major].index[0]
-N = df["Status Pengisian Kuesioner"][row]
+N = df["Unnamed: 3"][row]
 Total = df["Total Alumni (N)"][row]
 N_persen = round(df["%"][row]*100)
 
