@@ -1,11 +1,4 @@
 import streamlit as st
-
-st.title("Data Tren User Survey")
-
-st.write("Angkatan 2011 - 2015")
-
-
-import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -303,9 +296,6 @@ pbd21 = pb21.describe()
 pbd22 = pb22.describe()
 #calculation for the table (bekerja)
 #calculate the count
-mean_pb18 = pbd18.loc['mean', 0]
-median_pb18 = pbd18.loc['50%', 0]
-
 
 bc_18 = "{} orang".format(len(pb18))
 bc_19 = "{} orang".format(len(pb19))
@@ -365,6 +355,11 @@ df1 = pd.DataFrame(
 
 st.table(df1)
 
+pdu18 = pb18.describe()
+pdu19 = pb19.describe()
+pdu20 = pb20.describe()
+pdu21 = pb21.describe()
+pdu22 = pb22.describe()
 
 #calculation for the table (wirausaha)
 #calculate the count
@@ -375,42 +370,38 @@ bu_21 = "{} orang".format(len(pu21))
 bu_22 = "{} orang".format(len(pu22))
 
 #calculate mean
-mean_pu18 = "Rp {:,.2f}".format(Average(pu18))
-mean_pu19 = "Rp {:,.2f}".format(Average(pu19))
-mean_pu20 = "Rp {:,.2f}".format(Average(pu20))
-mean_pu21 = "Rp {:,.2f}".format(np.nanmean(pu21))
-mean_pu22 = "Rp {:,.2f}".format(1)
+mean_pu18 = "Rp {:,.2f}".format(pdu18.loc['mean', 0])
+mean_pu19 = "Rp {:,.2f}".format(pdu19.loc['mean', 0])
+mean_pu20 = "Rp {:,.2f}".format(pdu20.loc['mean', 0])
+mean_pu21 = "Rp {:,.2f}".format(pdu21.loc['mean', 0])
+mean_pu22 = "Rp {:,.2f}".format(pdu22.loc['mean', 0])
 #calculate the lowest value
-min_pu18 = "Rp {:,.2f}".format(np.nanmin(pu18))
-min_pu19 = "Rp {:,.2f}".format(np.nanmin(pu19))
-min_pu20 = "Rp {:,.2f}".format(np.nanmin(pu20))
-min_pu21 = "Rp {:,.2f}".format(np.nanmin(pu21))
-min_pu22 = "Rp {:,.2f}".format(np.nanmin(1))
+min_pu18 = "Rp {:,.2f}".format(pdu18.loc['min', 0])
+min_pu19 = "Rp {:,.2f}".format(pdu19.loc['min', 0])
+min_pu20 = "Rp {:,.2f}".format(pdu20.loc['min', 0])
+min_pu21 = "Rp {:,.2f}".format(pdu21.loc['min', 0])
+min_pu22 = "Rp {:,.2f}".format(pdu22.loc['min', 0])
 
 #calculate the highest value
-max_pu18 = "Rp {:,.2f}".format(np.nanmax(pu18))
-max_pu19 = "Rp {:,.2f}".format(np.nanmax(pu19))
-max_pu20 = "Rp {:,.2f}".format(np.nanmax(pu20))
-max_pu21 = "Rp {:,.2f}".format(np.nanmax(pu21))
-max_pu22 = "Rp {:,.2f}".format(np.nanmax(1))
-# max_pu22 = "Rp{:,.2f}".format(max(pu22))
+max_pu18 = "Rp {:,.2f}".format(pdu18.loc['max', 0])
+max_pu19 = "Rp {:,.2f}".format(pdu19.loc['max', 0])
+max_pu20 = "Rp {:,.2f}".format(pdu20.loc['max', 0])
+max_pu21 = "Rp {:,.2f}".format(pdu21.loc['max', 0])
+max_pu22 = "Rp {:,.2f}".format(pdu22.loc['max', 0])
 
 #calculate the median
-med_u18 = "Rp {:,.2f}".format(np.nanmedian(pu18))
-med_u19 = "Rp {:,.2f}".format(np.nanmedian(pu19))
-med_u20 = "Rp {:,.2f}".format(np.nanmedian(pu20))
-med_u21 = "Rp {:,.2f}".format(np.nanmedian(pu21))
-med_u22 = "Rp {:,.2f}".format(np.nanmedian(pu22))
-# med_u22 = "Rp{:,.2f}".format(statistics.median(pu22))
+med_u18 = "Rp {:,.2f}".format(pdu18.loc['50%', 0])
+med_u19 = "Rp {:,.2f}".format(pdu19.loc['50%', 0])
+med_u20 = "Rp {:,.2f}".format(pdu20.loc['50%', 0])
+med_u21 = "Rp {:,.2f}".format(pdu21.loc['50%', 0])
+med_u22 = "Rp {:,.2f}".format(pdu22.loc['50%', 0])
 #calculate standard deviation
-std_u18 = "Rp {:,.2f}".format(np.nanstd(pu18))
-# std_u19 = "Rp{:,}".format(statistics.pstdev(pu19))
-std_u19 = "Rp {:,.2f}".format(np.nanstd(pu19))
-std_u20 = "Rp {:,.2f}".format(np.nanstd(pu20))
-std_u21 = "Rp {:,.2f}".format(np.nanstd(pu21))
-std_u22 = "Rp {:,.2f}".format(np.nanstd(pu22))
-# std_u21 = "Rp{:,}".format(statistics.pstdev(pu21))
-# std_u22 = "Rp{:,}".format(statistics.pstdev(pu22))
+std_u18 = "Rp {:,.2f}".format(pdu18.loc['std', 0])
+std_u19 = "Rp {:,.2f}".format(pdu19.loc['std', 0])
+std_u20 = "Rp {:,.2f}".format(pdu20.loc['std', 0])
+std_u21 = "Rp {:,.2f}".format(pdu21.loc['std', 0])
+std_u22 = "Rp {:,.2f}".format(pdu22.loc['std', 0])
+
 
 countu = [bu_18, bu_19, bu_20, bu_21, bu_22]
 minu = [min_pu18, min_pu19, min_pu20, min_pu21, min_pu22]
